@@ -1,4 +1,9 @@
-%% Micro-Manager Initiation
+%% TI2_v1.m
+%% Example Matlab script for communicating with the
+%% Nikon Ti2 Eclipse microscope
+%% Requires Micro-Manager v2.0 or later
+
+%% Micro-Manager Initialisation
 import mmcorej.*;
 mmc=CMMCore;
 mmc.loadSystemConfiguration('C:\Program Files\Micro-Manager-2.0beta\Ti2_V2.cfg');
