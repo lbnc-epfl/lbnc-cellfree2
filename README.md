@@ -27,7 +27,11 @@ First install the required software. LabVIEW and Matlab are used to control the 
 2. Copy the library `Ti2_Mic_Driver.dll`, installed by Ti2 Control, to the main Micro-Manager folder. 
 3. Run Micro-Manager, add the microscope and generate a cfg file. Further instructions are found on the [Micro-Manager website](https://micro-manager.org/wiki/NikonTi2).
 
-### 2. Setting up the Matlab interface
+### 2. Adding paths to Windows
+
+1. Add the location of Micro-Manager's dlls to a new Windows path variable. To do this, go to `Start->Settings->Control Panel->System->Advanced->Environment Variables`. Make a new user variable named `PATH` and set it to the location of Micro-Manager (for example, C:\Program Files\Micro-Manager-2.0beta).
+
+### 3. Setting up the Matlab interface
 
 1. In Matlab run command `edit([prefdir '/javaclasspath.txt']);` to first create, then edit javapaths for Matlab. Add the following paths to the `javaclasspath.txt` file (actual paths will depend on your setup):
 
@@ -63,9 +67,12 @@ The system configuration path should point to the cfg file you generated when fi
 
 More information for this step can be found on the Micro-Manager's [Matlab configuration description](https://micro-manager.org/wiki/Matlab_Configuration). 
 
-### 3. Linking LabVIEW and Matlab
+### 4. Linking LabVIEW and Matlab
 
 1. Open up the main VI `NikonTI2_Hama_valves_V1.vi`. Check that the Hamamatsu LabVIEW interface has installed correctly. There are then two links which must be made.
 2. Set the name of the USB-serial interface to the valves' relay board (default value is `COM4` but this will change depending on the individual machine).
 3. Set the path to the Micro-Manager cfg file in the `matlab_TI2_init.vi` subVI.
 
+--- 
+
+Typically, the Windows path variable (Step 2) and the javaclasspath (Step 3) must be set for every individual user on a machine. 
